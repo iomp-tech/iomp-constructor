@@ -48,6 +48,24 @@ const GoodsEdit = ({match}) => {
                                 dataForm[key][key2].image
                             );
                         }
+					}
+					
+                    if (dataForm[key][key2].type === "content") {
+                        if (dataForm[key][key2].image) {
+                            formData.append(
+                                "contentImage-" + key2,
+                                dataForm[key][key2].image
+                            );
+                        }
+                    }
+					
+                    if (dataForm[key][key2].type === "demo") {
+                        if (dataForm[key][key2].image) {
+                            formData.append(
+                                "demoImage-" + key2,
+                                dataForm[key][key2].image
+                            );
+                        }
                     }
 
                     if (dataForm[key][key2].type === "main2-image") {
