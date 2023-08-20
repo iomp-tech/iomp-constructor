@@ -39,15 +39,13 @@ const GoodsPageBlockMain1Image = ({keyId, valueForm}) => {
                     className="img-placeholder"
                     style={{
                         backgroundImage: `url(${stateImg})`,
-                    }}
-                ></div>
+                    }}></div>
             ) : (
                 <div
                     className="img-placeholder"
                     style={{
                         backgroundImage: `url(${valueForm.image})`,
-                    }}
-                ></div>
+                    }}></div>
             )}
         </>
     );
@@ -79,15 +77,13 @@ const GoodsPageBlockMain2Image = ({keyId, valueForm}) => {
                     className="img-placeholder"
                     style={{
                         backgroundImage: `url(${stateImg})`,
-                    }}
-                ></div>
+                    }}></div>
             ) : (
                 <div
                     className="img-placeholder"
                     style={{
                         backgroundImage: `url(${valueForm.image})`,
-                    }}
-                ></div>
+                    }}></div>
             )}
         </>
     );
@@ -107,16 +103,14 @@ const GoodsPageBlockSquares = ({fields}) => {
             {fields.map((key, index) => (
                 <div
                     className="goods-page-subblock"
-                    key={`goods-page-subblock-${key}-${index}`}
-                >
+                    key={`goods-page-subblock-${key}-${index}`}>
                     <div className="goods-page-block-delete">
                         <h2 className="goods-page-subblock__title">
                             Блок {parseFloat(index + 1)}
                         </h2>
                         <span
                             className="goods-page-block__delete"
-                            onClick={() => deleteBlock(index)}
-                        >
+                            onClick={() => deleteBlock(index)}>
                             Удалить
                         </span>
                     </div>
@@ -174,16 +168,14 @@ const GoodsPageBlockSliderTextTabsItems = ({fields}) => {
             {fields.map((key, index) => (
                 <div
                     className="goods-page-subblock"
-                    key={`GoodsPageBlockSliderTextTabsItems-${index}`}
-                >
+                    key={`GoodsPageBlockSliderTextTabsItems-${index}`}>
                     <div className="goods-page-block-delete">
                         <h2 className="goods-page-subblock__title">
                             Список {parseFloat(index + 1)}
                         </h2>
                         <span
                             className="goods-page-block__delete"
-                            onClick={() => deleteBlock(index)}
-                        >
+                            onClick={() => deleteBlock(index)}>
                             Удалить
                         </span>
                     </div>
@@ -222,8 +214,7 @@ const GoodsPageBlockSliderTextTabs = ({fields}) => {
             {fields.map((key, index) => (
                 <div
                     className="goods-page-subblock"
-                    key={`goods-page-subblock-${key}-${index}`}
-                >
+                    key={`goods-page-subblock-${key}-${index}`}>
                     <div className="goods-page-block-delete">
                         <h2 className="goods-page-subblock__title">
                             Таб {parseFloat(index + 1)}
@@ -231,8 +222,7 @@ const GoodsPageBlockSliderTextTabs = ({fields}) => {
 
                         <span
                             className="goods-page-block__delete"
-                            onClick={() => deleteBlock(index)}
-                        >
+                            onClick={() => deleteBlock(index)}>
                             Удалить
                         </span>
                     </div>
@@ -273,19 +263,79 @@ const GoodsPageBlockModulesItem = ({fields}) => {
             {fields.map((key, index) => (
                 <div
                     className="goods-page-subblock"
-                    key={`GoodsPageBlockModulesItem-${index}`}
-                >
+                    key={`GoodsPageBlockModulesItem-${index}`}>
                     <div className="goods-page-block-delete">
                         <h2 className="goods-page-subblock__title">
                             Список {parseFloat(index + 1)}
                         </h2>
                         <span
                             className="goods-page-block__delete"
-                            onClick={() => deleteBlock(index)}
-                        >
+                            onClick={() => deleteBlock(index)}>
                             Удалить
                         </span>
                     </div>
+
+                    <Field
+                        component={RenderInput}
+                        type="text"
+                        name={`${key}.title`}
+                        label="Заголовок"
+                        className="goods-page-block__input"
+                    />
+
+                    <Field
+                        component={RenderInput}
+                        type="text"
+                        name={`${key}.description`}
+                        label="Описание"
+                        className="goods-page-block__input"
+                    />
+                </div>
+            ))}
+
+            <div className="goods-page-subblock-btn">
+                <GoodsPageAddBlockBtn
+                    text="Добавить элемент"
+                    addBlock={addBlock}
+                />
+            </div>
+        </>
+    );
+};
+
+const GoodsPageBlockProgrammItem = ({fields}) => {
+    const addBlock = () => {
+        fields.push({});
+    };
+
+    const deleteBlock = (index) => {
+        fields.remove(index);
+    };
+
+    return (
+        <>
+            {fields.map((key, index) => (
+                <div
+                    className="goods-page-subblock"
+                    key={`GoodsPageBlockProgrammItem-${index}`}>
+                    <div className="goods-page-block-delete">
+                        <h2 className="goods-page-subblock__title">
+                            Элемент {parseFloat(index + 1)}
+                        </h2>
+                        <span
+                            className="goods-page-block__delete"
+                            onClick={() => deleteBlock(index)}>
+                            Удалить
+                        </span>
+                    </div>
+
+                    <Field
+                        component={RenderInput}
+                        type="text"
+                        name={`${key}.subtitle`}
+                        label="Подзаголовок"
+                        className="goods-page-block__input"
+                    />
 
                     <Field
                         component={RenderInput}
@@ -339,16 +389,14 @@ const GoodsPageBlockModules = ({fields, valueForm}) => {
             {fields.map((key, index) => (
                 <div
                     className="goods-page-subblock"
-                    key={`goods-page-subblock-${key}-${index}`}
-                >
+                    key={`goods-page-subblock-${key}-${index}`}>
                     <div className="goods-page-block-delete">
                         <h2 className="goods-page-subblock__title">
                             Модуль {parseFloat(index + 1)}
                         </h2>
                         <span
                             className="goods-page-block__delete"
-                            onClick={() => deleteBlock(index)}
-                        >
+                            onClick={() => deleteBlock(index)}>
                             Удалить
                         </span>
                     </div>
@@ -494,16 +542,14 @@ const GoodsPageBlockTeacher = ({fields}) => {
             {fields.map((key, index) => (
                 <div
                     className="goods-page-subblock"
-                    key={`goods-page-subblock-${key}-${index}`}
-                >
+                    key={`goods-page-subblock-${key}-${index}`}>
                     <div className="goods-page-block-delete">
                         <h2 className="goods-page-subblock__title">
                             Преподаватель {parseFloat(index + 1)}
                         </h2>
                         <span
                             className="goods-page-block__delete"
-                            onClick={() => deleteBlock(index)}
-                        >
+                            onClick={() => deleteBlock(index)}>
                             Удалить
                         </span>
                     </div>
@@ -567,16 +613,14 @@ const GoodsPageBlockFeedbackPhotos = ({fields, valueForm}) => {
             {fields.map((key, index) => (
                 <div
                     className="goods-page-subblock"
-                    key={`goods-page-subblock-${key}-${index}`}
-                >
+                    key={`goods-page-subblock-${key}-${index}`}>
                     <div className="goods-page-block-delete">
                         <h2 className="goods-page-subblock__title">
                             Фото (отзывы) {parseFloat(index + 1)}
                         </h2>
                         <span
                             className="goods-page-block__delete"
-                            onClick={() => deleteBlock(index)}
-                        >
+                            onClick={() => deleteBlock(index)}>
                             Удалить
                         </span>
                     </div>
@@ -590,15 +634,13 @@ const GoodsPageBlockFeedbackPhotos = ({fields, valueForm}) => {
                             className="img-placeholder"
                             style={{
                                 backgroundImage: `url(${stateImg[index]})`,
-                            }}
-                        ></div>
+                            }}></div>
                     ) : (
                         <div
                             className="img-placeholder"
                             style={{
                                 backgroundImage: `url(${valueForm.photos[index].imageFeedback})`,
-                            }}
-                        ></div>
+                            }}></div>
                     )}
                 </div>
             ))}
@@ -651,16 +693,14 @@ const GoodsPageBlockFeedbackVideos = ({fields, valueForm}) => {
             {fields.map((key, index) => (
                 <div
                     className="goods-page-subblock"
-                    key={`goods-page-subblock-${key}-${index}`}
-                >
+                    key={`goods-page-subblock-${key}-${index}`}>
                     <div className="goods-page-block-delete">
                         <h2 className="goods-page-subblock__title">
                             Видео (отзывы) {parseFloat(index + 1)}
                         </h2>
                         <span
                             className="goods-page-block__delete"
-                            onClick={() => deleteBlock(index)}
-                        >
+                            onClick={() => deleteBlock(index)}>
                             Удалить
                         </span>
                     </div>
@@ -685,15 +725,13 @@ const GoodsPageBlockFeedbackVideos = ({fields, valueForm}) => {
                             className="img-placeholder"
                             style={{
                                 backgroundImage: `url(${stateImg[index]})`,
-                            }}
-                        ></div>
+                            }}></div>
                     ) : (
                         <div
                             className="img-placeholder"
                             style={{
                                 backgroundImage: `url(${valueForm.videos[index].videoCodePhoto})`,
-                            }}
-                        ></div>
+                            }}></div>
                     )}
                 </div>
             ))}
@@ -732,16 +770,14 @@ const GoodsPageBlockGoods = ({fields}) => {
             {fields.map((key, index) => (
                 <div
                     className="goods-page-subblock"
-                    key={`goods-page-subblock-${key}-${index}`}
-                >
+                    key={`goods-page-subblock-${key}-${index}`}>
                     <div className="goods-page-block-delete">
                         <h2 className="goods-page-subblock__title">
                             Товар {parseFloat(index + 1)}
                         </h2>
                         <span
                             className="goods-page-block__delete"
-                            onClick={() => deleteBlock(index)}
-                        >
+                            onClick={() => deleteBlock(index)}>
                             Удалить
                         </span>
                     </div>
@@ -811,6 +847,7 @@ const GoodsPageBlock = ({fields, values}) => {
         {title: "Текст + Картинка", key: "content"},
         {title: "Видео", key: "video"},
         {title: "Демо уроки", key: "demo"},
+        {title: "Программа курса", key: "programm"},
         {title: "Форма покупки (Якорь)", key: "fixed-form"},
     ];
 
@@ -824,8 +861,7 @@ const GoodsPageBlock = ({fields, values}) => {
                                 <Draggable
                                     key={key}
                                     draggableId={key}
-                                    index={index}
-                                >
+                                    index={index}>
                                     {(provided, snapshot) => (
                                         <div
                                             ref={provided.innerRef}
@@ -836,12 +872,10 @@ const GoodsPageBlock = ({fields, values}) => {
 
                                                 ...provided.draggableProps
                                                     .style,
-                                            }}
-                                        >
+                                            }}>
                                             <div
                                                 className="goods-page-block"
-                                                key={`goods-page-block-${key}-${index}`}
-                                            >
+                                                key={`goods-page-block-${key}-${index}`}>
                                                 <h2 className="goods-page-subblock__title">
                                                     Блок страницы
                                                 </h2>
@@ -850,16 +884,14 @@ const GoodsPageBlock = ({fields, values}) => {
                                                         className="goods-page-block__delete"
                                                         onClick={() =>
                                                             deleteBlock(index)
-                                                        }
-                                                    >
+                                                        }>
                                                         Удалить
                                                     </span>
                                                 </div>
 
                                                 <div
                                                     className="goods-page-block-slider"
-                                                    {...provided.dragHandleProps}
-                                                >
+                                                    {...provided.dragHandleProps}>
                                                     <span className="goods-page-block__slider">
                                                         Переместить
                                                     </span>
@@ -1727,6 +1759,39 @@ const GoodsPageBlock = ({fields, values}) => {
                                                                     index
                                                                 ]
                                                             }
+                                                        />
+                                                    </>
+                                                ) : null}
+
+                                                {values &&
+                                                values.page[index].type ===
+                                                    "programm" ? (
+                                                    <>
+                                                        <Field
+                                                            component={
+                                                                RenderInput
+                                                            }
+                                                            type="text"
+                                                            name={`${key}.title`}
+                                                            label="Заголовок"
+                                                            className="goods-page-block__input"
+                                                        />
+
+                                                        <Field
+                                                            component={
+                                                                RenderInput
+                                                            }
+                                                            type="text"
+                                                            name={`${key}.description`}
+                                                            label="Описание"
+                                                            className="goods-page-block__input"
+                                                        />
+
+                                                        <FieldArray
+                                                            component={
+                                                                GoodsPageBlockProgrammItem
+                                                            }
+                                                            name={`${key}.items`}
                                                         />
                                                     </>
                                                 ) : null}

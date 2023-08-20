@@ -40,15 +40,13 @@ const TimetablePageBlockMain1Image = React.memo(({keyId, valueForm}) => {
                     className="img-placeholder"
                     style={{
                         backgroundImage: `url(${stateImg})`,
-                    }}
-                ></div>
+                    }}></div>
             ) : (
                 <div
                     className="img-placeholder"
                     style={{
                         backgroundImage: `url(${valueForm.image})`,
-                    }}
-                ></div>
+                    }}></div>
             )}
         </>
     );
@@ -80,15 +78,13 @@ const TimetablePageBlockMain2Image = React.memo(({keyId, valueForm}) => {
                     className="img-placeholder"
                     style={{
                         backgroundImage: `url(${stateImg})`,
-                    }}
-                ></div>
+                    }}></div>
             ) : (
                 <div
                     className="img-placeholder"
                     style={{
                         backgroundImage: `url(${valueForm.image})`,
-                    }}
-                ></div>
+                    }}></div>
             )}
         </>
     );
@@ -108,16 +104,14 @@ const TimetablePageBlockSquares = React.memo(({fields}) => {
             {fields.map((key, index) => (
                 <div
                     className="goods-page-subblock"
-                    key={`goods-page-subblock-${key}-${index}`}
-                >
+                    key={`goods-page-subblock-${key}-${index}`}>
                     <div className="goods-page-block-delete">
                         <h2 className="goods-page-subblock__title">
                             Блок {parseFloat(index + 1)}
                         </h2>
                         <span
                             className="goods-page-block__delete"
-                            onClick={() => deleteBlock(index)}
-                        >
+                            onClick={() => deleteBlock(index)}>
                             Удалить
                         </span>
                     </div>
@@ -175,16 +169,14 @@ const TimetablePageBlockSliderTextTabsItems = React.memo(({fields}) => {
             {fields.map((key, index) => (
                 <div
                     className="goods-page-subblock"
-                    key={`TimetablePageBlockSliderTextTabsItems-${index}`}
-                >
+                    key={`TimetablePageBlockSliderTextTabsItems-${index}`}>
                     <div className="goods-page-block-delete">
                         <h2 className="goods-page-subblock__title">
                             Список {parseFloat(index + 1)}
                         </h2>
                         <span
                             className="goods-page-block__delete"
-                            onClick={() => deleteBlock(index)}
-                        >
+                            onClick={() => deleteBlock(index)}>
                             Удалить
                         </span>
                     </div>
@@ -223,8 +215,7 @@ const TimetablePageBlockSliderTextTabs = React.memo(({fields}) => {
             {fields.map((key, index) => (
                 <div
                     className="goods-page-subblock"
-                    key={`goods-page-subblock-${key}-${index}`}
-                >
+                    key={`goods-page-subblock-${key}-${index}`}>
                     <div className="goods-page-block-delete">
                         <h2 className="goods-page-subblock__title">
                             Таб {parseFloat(index + 1)}
@@ -232,8 +223,7 @@ const TimetablePageBlockSliderTextTabs = React.memo(({fields}) => {
 
                         <span
                             className="goods-page-block__delete"
-                            onClick={() => deleteBlock(index)}
-                        >
+                            onClick={() => deleteBlock(index)}>
                             Удалить
                         </span>
                     </div>
@@ -277,16 +267,14 @@ const TimetablePageBlockModulesItem = React.memo(({fields}) => {
             {fields.map((key, index) => (
                 <div
                     className="goods-page-subblock"
-                    key={`TimetablePageBlockModulesItem-${index}`}
-                >
+                    key={`TimetablePageBlockModulesItem-${index}`}>
                     <div className="goods-page-block-delete">
                         <h2 className="goods-page-subblock__title">
                             Список {parseFloat(index + 1)}
                         </h2>
                         <span
                             className="goods-page-block__delete"
-                            onClick={() => deleteBlock(index)}
-                        >
+                            onClick={() => deleteBlock(index)}>
                             Удалить
                         </span>
                     </div>
@@ -319,7 +307,7 @@ const TimetablePageBlockModulesItem = React.memo(({fields}) => {
     );
 });
 
-const TimetablePageBlockModules = React.memo(({fields, valueForm}) => {
+const TimetablePageBlockModules = ({fields, valueForm}) => {
     const dispatch = useDispatch();
 
     const {items} = useSelector(({goods}) => goods);
@@ -343,16 +331,14 @@ const TimetablePageBlockModules = React.memo(({fields, valueForm}) => {
             {fields.map((key, index) => (
                 <div
                     className="goods-page-subblock"
-                    key={`goods-page-subblock-${key}-${index}`}
-                >
+                    key={`goods-page-subblock-${key}-${index}`}>
                     <div className="goods-page-block-delete">
                         <h2 className="goods-page-subblock__title">
                             Модуль {parseFloat(index + 1)}
                         </h2>
                         <span
                             className="goods-page-block__delete"
-                            onClick={() => deleteBlock(index)}
-                        >
+                            onClick={() => deleteBlock(index)}>
                             Удалить
                         </span>
                     </div>
@@ -378,14 +364,31 @@ const TimetablePageBlockModules = React.memo(({fields, valueForm}) => {
                         name={`${key}.items`}
                     />
 
-                    <Field
+                    {/* <Field
                         component={RenderSelect}
                         name={`${key}.goodModule`}
-                        optionText="title"
+                        optionText="id"
                         optionValue="id"
                         label="Товар модуля"
                         choices={items}
                         className="goods-page-block__select"
+                    /> */}
+
+                    <Field
+                        component={RenderInput}
+                        type="text"
+                        name={`${key}.goodModuleId`}
+                        label="ID Товара модуля"
+                        choices={items}
+                        className="goods-page-block__input"
+                    />
+
+                    <Field
+                        component={RenderInput}
+                        type="text"
+                        name={`${key}.btnText`}
+                        label="Кнопка"
+                        className="goods-page-block__input"
                     />
 
                     <Field
@@ -401,14 +404,22 @@ const TimetablePageBlockModules = React.memo(({fields, valueForm}) => {
 
                     {valueForm.modules[index].stockBoolean === "1" ? (
                         <>
-                            <Field
+                            {/* <Field
                                 component={RenderSelect}
                                 name={`${key}.goodModuleStock`}
-                                optionText="title"
+                                optionText="id"
                                 optionValue="id"
                                 label="Товар акции"
                                 choices={items}
                                 className="goods-page-block__select"
+                            /> */}
+                            <Field
+                                component={RenderInput}
+                                type="text"
+                                name={`${key}.goodModuleStockId`}
+                                label="ID Товара акции модуля"
+                                choices={items}
+                                className="goods-page-block__input"
                             />
 
                             <Field
@@ -447,7 +458,69 @@ const TimetablePageBlockModules = React.memo(({fields, valueForm}) => {
             </div>
         </>
     );
-});
+};
+
+const TimetablePageBlockProgrammItem = ({fields}) => {
+    const addBlock = () => {
+        fields.push({});
+    };
+
+    const deleteBlock = (index) => {
+        fields.remove(index);
+    };
+
+    return (
+        <>
+            {fields.map((key, index) => (
+                <div
+                    className="goods-page-subblock"
+                    key={`TimetablePageBlockProgrammItem-${index}`}>
+                    <div className="goods-page-block-delete">
+                        <h2 className="goods-page-subblock__title">
+                            Элемент {parseFloat(index + 1)}
+                        </h2>
+                        <span
+                            className="goods-page-block__delete"
+                            onClick={() => deleteBlock(index)}>
+                            Удалить
+                        </span>
+                    </div>
+
+                    <Field
+                        component={RenderInput}
+                        type="text"
+                        name={`${key}.subtitle`}
+                        label="Подзаголовок"
+                        className="goods-page-block__input"
+                    />
+
+                    <Field
+                        component={RenderInput}
+                        type="text"
+                        name={`${key}.title`}
+                        label="Заголовок"
+                        className="goods-page-block__input"
+                    />
+
+                    <Field
+                        component={RenderInput}
+                        type="text"
+                        name={`${key}.description`}
+                        label="Описание"
+                        className="goods-page-block__input"
+                    />
+                </div>
+            ))}
+
+            <div className="goods-page-subblock-btn">
+                <TimetablePageAddBlockBtn
+                    text="Добавить элемент"
+                    addBlock={addBlock}
+                />
+            </div>
+        </>
+    );
+};
 
 const TimetablePageBlockTeacher = React.memo(({fields}) => {
     const dispatch = useDispatch();
@@ -473,16 +546,14 @@ const TimetablePageBlockTeacher = React.memo(({fields}) => {
             {fields.map((key, index) => (
                 <div
                     className="goods-page-subblock"
-                    key={`goods-page-subblock-${key}-${index}`}
-                >
+                    key={`goods-page-subblock-${key}-${index}`}>
                     <div className="goods-page-block-delete">
                         <h2 className="goods-page-subblock__title">
                             Преподаватель {parseFloat(index + 1)}
                         </h2>
                         <span
                             className="goods-page-block__delete"
-                            onClick={() => deleteBlock(index)}
-                        >
+                            onClick={() => deleteBlock(index)}>
                             Удалить
                         </span>
                     </div>
@@ -546,16 +617,14 @@ const TimetablePageBlockFeedbackPhotos = React.memo(({fields, valueForm}) => {
             {fields.map((key, index) => (
                 <div
                     className="goods-page-subblock"
-                    key={`goods-page-subblock-${key}-${index}`}
-                >
+                    key={`goods-page-subblock-${key}-${index}`}>
                     <div className="goods-page-block-delete">
                         <h2 className="goods-page-subblock__title">
                             Фото (отзывы) {parseFloat(index + 1)}
                         </h2>
                         <span
                             className="goods-page-block__delete"
-                            onClick={() => deleteBlock(index)}
-                        >
+                            onClick={() => deleteBlock(index)}>
                             Удалить
                         </span>
                     </div>
@@ -569,15 +638,13 @@ const TimetablePageBlockFeedbackPhotos = React.memo(({fields, valueForm}) => {
                             className="img-placeholder"
                             style={{
                                 backgroundImage: `url(${stateImg[index]})`,
-                            }}
-                        ></div>
+                            }}></div>
                     ) : (
                         <div
                             className="img-placeholder"
                             style={{
                                 backgroundImage: `url(${valueForm.photos[index].imageFeedback})`,
-                            }}
-                        ></div>
+                            }}></div>
                     )}
                 </div>
             ))}
@@ -630,16 +697,14 @@ const TimetablePageBlockFeedbackVideos = React.memo(({fields, valueForm}) => {
             {fields.map((key, index) => (
                 <div
                     className="goods-page-subblock"
-                    key={`goods-page-subblock-${key}-${index}`}
-                >
+                    key={`goods-page-subblock-${key}-${index}`}>
                     <div className="goods-page-block-delete">
                         <h2 className="goods-page-subblock__title">
                             Видео (отзывы) {parseFloat(index + 1)}
                         </h2>
                         <span
                             className="goods-page-block__delete"
-                            onClick={() => deleteBlock(index)}
-                        >
+                            onClick={() => deleteBlock(index)}>
                             Удалить
                         </span>
                     </div>
@@ -662,15 +727,13 @@ const TimetablePageBlockFeedbackVideos = React.memo(({fields, valueForm}) => {
                             className="img-placeholder"
                             style={{
                                 backgroundImage: `url(${stateImg[index]})`,
-                            }}
-                        ></div>
+                            }}></div>
                     ) : (
                         <div
                             className="img-placeholder"
                             style={{
                                 backgroundImage: `url(${valueForm.videos[index].videoCodePhoto})`,
-                            }}
-                        ></div>
+                            }}></div>
                     )}
                 </div>
             ))}
@@ -728,6 +791,7 @@ const TimetablePageBlock = React.memo(({fields, values}) => {
         {title: "Вопрос-ответ", key: "faq"},
         {title: "Текст + Картинка", key: "content"},
         {title: "Видео", key: "video"},
+        {title: "Программа курса", key: "programm"},
     ];
 
     return (
@@ -740,8 +804,7 @@ const TimetablePageBlock = React.memo(({fields, values}) => {
                                 <Draggable
                                     key={key}
                                     draggableId={key}
-                                    index={index}
-                                >
+                                    index={index}>
                                     {(provided, snapshot) => (
                                         <div
                                             ref={provided.innerRef}
@@ -752,12 +815,10 @@ const TimetablePageBlock = React.memo(({fields, values}) => {
 
                                                 ...provided.draggableProps
                                                     .style,
-                                            }}
-                                        >
+                                            }}>
                                             <div
                                                 className="goods-page-block"
-                                                key={`goods-page-block-${key}-${index}`}
-                                            >
+                                                key={`goods-page-block-${key}-${index}`}>
                                                 <div className="goods-page-block-delete">
                                                     <h2 className="goods-page-subblock__title">
                                                         Блок страницы
@@ -766,16 +827,14 @@ const TimetablePageBlock = React.memo(({fields, values}) => {
                                                         className="goods-page-block__delete"
                                                         onClick={() =>
                                                             deleteBlock(index)
-                                                        }
-                                                    >
+                                                        }>
                                                         Удалить
                                                     </span>
                                                 </div>
 
                                                 <div
                                                     className="goods-page-block-slider"
-                                                    {...provided.dragHandleProps}
-                                                >
+                                                    {...provided.dragHandleProps}>
                                                     <span className="goods-page-block__slider">
                                                         Переместить
                                                     </span>
@@ -1369,6 +1428,39 @@ const TimetablePageBlock = React.memo(({fields, values}) => {
                                                                     index
                                                                 ]
                                                             }
+                                                        />
+                                                    </>
+                                                ) : null}
+
+                                                {values &&
+                                                values.page[index].type ===
+                                                    "programm" ? (
+                                                    <>
+                                                        <Field
+                                                            component={
+                                                                RenderInput
+                                                            }
+                                                            type="text"
+                                                            name={`${key}.title`}
+                                                            label="Заголовок"
+                                                            className="goods-page-block__input"
+                                                        />
+
+                                                        <Field
+                                                            component={
+                                                                RenderInput
+                                                            }
+                                                            type="text"
+                                                            name={`${key}.description`}
+                                                            label="Описание"
+                                                            className="goods-page-block__input"
+                                                        />
+
+                                                        <FieldArray
+                                                            component={
+                                                                TimetablePageBlockProgrammItem
+                                                            }
+                                                            name={`${key}.items`}
                                                         />
                                                     </>
                                                 ) : null}
