@@ -9,7 +9,8 @@ import {fetchTeachers} from "../../../redux/actions/teachers";
 import {
     TimetablePageAddBlockBtn,
     TimetablePageBlockGoods,
-    RenderInput,
+	RenderInput,
+	RenderRichInput,
     RenderSelect,
     FieldFileInput,
 } from "../../";
@@ -139,7 +140,7 @@ const TimetablePageBlockSquares = React.memo(({fields}) => {
                         className="goods-page-block__input"
                     />
                     <Field
-                        component={RenderInput}
+                        component={RenderRichInput}
                         type="text"
                         name={`${key}.description`}
                         label="Описание блока"
@@ -288,7 +289,7 @@ const TimetablePageBlockModulesItem = React.memo(({fields}) => {
                     />
 
                     <Field
-                        component={RenderInput}
+                        component={RenderRichInput}
                         type="text"
                         name={`${key}.description`}
                         label="Описание"
@@ -352,7 +353,7 @@ const TimetablePageBlockModules = ({fields, valueForm}) => {
                     />
 
                     <Field
-                        component={RenderInput}
+                        component={RenderRichInput}
                         type="text"
                         name={`${key}.description`}
                         label="Описание"
@@ -431,7 +432,7 @@ const TimetablePageBlockModules = ({fields, valueForm}) => {
                             />
 
                             <Field
-                                component={RenderInput}
+                                component={RenderRichInput}
                                 type="text"
                                 name={`${key}.descriptionStock`}
                                 label="Описание"
@@ -503,7 +504,7 @@ const TimetablePageBlockProgrammItem = ({fields}) => {
                     />
 
                     <Field
-                        component={RenderInput}
+                        component={RenderRichInput}
                         type="text"
                         name={`${key}.description`}
                         label="Описание"
@@ -877,7 +878,7 @@ const TimetablePageBlock = React.memo(({fields, values}) => {
                                                         />
                                                         <Field
                                                             component={
-                                                                RenderInput
+                                                                RenderRichInput
                                                             }
                                                             type="text"
                                                             name={`${key}.description`}
@@ -919,7 +920,7 @@ const TimetablePageBlock = React.memo(({fields, values}) => {
                                                         />
                                                         <Field
                                                             component={
-                                                                RenderInput
+                                                                RenderRichInput
                                                             }
                                                             type="text"
                                                             name={`${key}.description`}
@@ -971,7 +972,7 @@ const TimetablePageBlock = React.memo(({fields, values}) => {
                                                         />
                                                         <Field
                                                             component={
-                                                                RenderInput
+                                                                RenderRichInput
                                                             }
                                                             type="text"
                                                             name={`${key}.description`}
@@ -1005,7 +1006,7 @@ const TimetablePageBlock = React.memo(({fields, values}) => {
                                                         />
                                                         <Field
                                                             component={
-                                                                RenderInput
+                                                                RenderRichInput
                                                             }
                                                             type="text"
                                                             name={`${key}.description`}
@@ -1317,7 +1318,7 @@ const TimetablePageBlock = React.memo(({fields, values}) => {
                                                         />
                                                         <Field
                                                             component={
-                                                                RenderInput
+                                                                RenderRichInput
                                                             }
                                                             type="text"
                                                             name={`${key}.description`}
@@ -1376,7 +1377,7 @@ const TimetablePageBlock = React.memo(({fields, values}) => {
                                                         />
                                                         <Field
                                                             component={
-                                                                RenderInput
+                                                                RenderRichInput
                                                             }
                                                             type="text"
                                                             name={`${key}.description`}
@@ -1413,7 +1414,7 @@ const TimetablePageBlock = React.memo(({fields, values}) => {
                                                         />
                                                         <Field
                                                             component={
-                                                                RenderInput
+                                                                RenderRichInput
                                                             }
                                                             type="text"
                                                             name={`${key}.thankDescription`}
@@ -1448,7 +1449,7 @@ const TimetablePageBlock = React.memo(({fields, values}) => {
 
                                                         <Field
                                                             component={
-                                                                RenderInput
+                                                                RenderRichInput
                                                             }
                                                             type="text"
                                                             name={`${key}.description`}

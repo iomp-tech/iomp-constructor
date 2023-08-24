@@ -9,6 +9,7 @@ import {fetchTeachers} from "../../../redux/actions/teachers";
 import {
     GoodsPageAddBlockBtn,
     RenderInput,
+    RenderRichInput,
     RenderSelect,
     FieldFileInput,
 } from "../../";
@@ -138,7 +139,7 @@ const GoodsPageBlockSquares = ({fields}) => {
                         className="goods-page-block__input"
                     />
                     <Field
-                        component={RenderInput}
+                        component={RenderRichInput}
                         type="text"
                         name={`${key}.description`}
                         label="Описание блока"
@@ -284,7 +285,7 @@ const GoodsPageBlockModulesItem = ({fields}) => {
                     />
 
                     <Field
-                        component={RenderInput}
+                        component={RenderRichInput}
                         type="text"
                         name={`${key}.description`}
                         label="Описание"
@@ -346,7 +347,7 @@ const GoodsPageBlockProgrammItem = ({fields}) => {
                     />
 
                     <Field
-                        component={RenderInput}
+                        component={RenderRichInput}
                         type="text"
                         name={`${key}.description`}
                         label="Описание"
@@ -410,7 +411,7 @@ const GoodsPageBlockModules = ({fields, valueForm}) => {
                     />
 
                     <Field
-                        component={RenderInput}
+                        component={RenderRichInput}
                         type="text"
                         name={`${key}.description`}
                         label="Описание"
@@ -489,7 +490,7 @@ const GoodsPageBlockModules = ({fields, valueForm}) => {
                             />
 
                             <Field
-                                component={RenderInput}
+                                component={RenderRichInput}
                                 type="text"
                                 name={`${key}.descriptionStock`}
                                 label="Описание"
@@ -932,7 +933,7 @@ const GoodsPageBlock = ({fields, values}) => {
                                                         />
                                                         <Field
                                                             component={
-                                                                RenderInput
+                                                                RenderRichInput
                                                             }
                                                             type="text"
                                                             name={`${key}.description`}
@@ -974,7 +975,7 @@ const GoodsPageBlock = ({fields, values}) => {
                                                         />
                                                         <Field
                                                             component={
-                                                                RenderInput
+                                                                RenderRichInput
                                                             }
                                                             type="text"
                                                             name={`${key}.description`}
@@ -1025,7 +1026,7 @@ const GoodsPageBlock = ({fields, values}) => {
                                                         />
                                                         <Field
                                                             component={
-                                                                RenderInput
+                                                                RenderRichInput
                                                             }
                                                             type="text"
                                                             name={`${key}.description`}
@@ -1179,7 +1180,7 @@ const GoodsPageBlock = ({fields, values}) => {
                                                         />
                                                         <Field
                                                             component={
-                                                                RenderInput
+                                                                RenderRichInput
                                                             }
                                                             type="text"
                                                             name={`${key}.description`}
@@ -1648,7 +1649,7 @@ const GoodsPageBlock = ({fields, values}) => {
                                                         />
                                                         <Field
                                                             component={
-                                                                RenderInput
+                                                                RenderRichInput
                                                             }
                                                             type="text"
                                                             name={`${key}.description`}
@@ -1707,7 +1708,7 @@ const GoodsPageBlock = ({fields, values}) => {
                                                         />
                                                         <Field
                                                             component={
-                                                                RenderInput
+                                                                RenderRichInput
                                                             }
                                                             type="text"
                                                             name={`${key}.description`}
@@ -1744,7 +1745,7 @@ const GoodsPageBlock = ({fields, values}) => {
                                                         />
                                                         <Field
                                                             component={
-                                                                RenderInput
+                                                                RenderRichInput
                                                             }
                                                             type="text"
                                                             name={`${key}.thankDescription`}
@@ -1779,7 +1780,7 @@ const GoodsPageBlock = ({fields, values}) => {
 
                                                         <Field
                                                             component={
-                                                                RenderInput
+                                                                RenderRichInput
                                                             }
                                                             type="text"
                                                             name={`${key}.description`}
@@ -1812,7 +1813,7 @@ const GoodsPageBlock = ({fields, values}) => {
 
                                                         <Field
                                                             component={
-                                                                RenderInput
+                                                                RenderRichInput
                                                             }
                                                             type="text"
                                                             name={`${key}.description`}

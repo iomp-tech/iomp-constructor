@@ -1,5 +1,6 @@
 // All
 export { default as RenderInput } from "./All/RenderInput";
+export { default as RenderRichInput } from "./All/RenderRichInput";
 export { default as RenderSelect } from "./All/RenderSelect";
 export { default as PreloaderPage } from "./All/PreloaderPage";
 export { default as FieldFileInput } from "./All/FieldFileInput";
