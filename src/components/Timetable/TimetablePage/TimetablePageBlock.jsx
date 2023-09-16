@@ -9,8 +9,8 @@ import {fetchTeachers} from "../../../redux/actions/teachers";
 import {
     TimetablePageAddBlockBtn,
     TimetablePageBlockGoods,
-	RenderInput,
-	RenderRichInput,
+    RenderInput,
+    RenderRichInput,
     RenderSelect,
     FieldFileInput,
 } from "../../";
@@ -387,6 +387,15 @@ const TimetablePageBlockModules = ({fields, valueForm}) => {
                     <Field
                         component={RenderInput}
                         type="text"
+                        name={`${key}.price`}
+                        label="Цена модуля"
+                        choices={items}
+                        className="goods-page-block__input"
+                    />
+
+                    <Field
+                        component={RenderInput}
+                        type="text"
                         name={`${key}.btnText`}
                         label="Кнопка"
                         className="goods-page-block__input"
@@ -447,7 +456,25 @@ const TimetablePageBlockModules = ({fields, valueForm}) => {
                                 className="goods-page-block__input"
                             />
                         </>
-                    ) : null}
+                    ) : (
+                        <>
+                            <Field
+                                component={RenderInput}
+                                type="text"
+                                name={`${key}.titleForm`}
+                                label="Заголовок Формы"
+                                className="goods-page-block__input"
+                            />
+
+                            <Field
+                                component={RenderRichInput}
+                                type="text"
+                                name={`${key}.descriptionForm`}
+                                label="Описание Формы"
+                                className="goods-page-block__input"
+                            />
+                        </>
+                    )}
                 </div>
             ))}
 
@@ -793,6 +820,8 @@ const TimetablePageBlock = React.memo(({fields, values}) => {
         {title: "Текст + Картинка", key: "content"},
         {title: "Видео", key: "video"},
         {title: "Программа курса", key: "programm"},
+        {title: "Форма покупки (Якорь)", key: "fixed-form"},
+        {title: "Текст + Форма", key: "text-form"},
     ];
 
     return (
@@ -1312,6 +1341,16 @@ const TimetablePageBlock = React.memo(({fields, values}) => {
                                                                 RenderInput
                                                             }
                                                             type="text"
+                                                            name={`${key}.subtitle`}
+                                                            label="Надзаголовок"
+                                                            className="goods-page-block__input"
+                                                        />
+
+                                                        <Field
+                                                            component={
+                                                                RenderInput
+                                                            }
+                                                            type="text"
                                                             name={`${key}.title`}
                                                             label="Заголовок"
                                                             className="goods-page-block__input"
@@ -1462,6 +1501,78 @@ const TimetablePageBlock = React.memo(({fields, values}) => {
                                                                 TimetablePageBlockProgrammItem
                                                             }
                                                             name={`${key}.items`}
+                                                        />
+                                                    </>
+                                                ) : null}
+
+                                                {values &&
+                                                values.page[index].type ===
+                                                    "fixed-form" ? (
+                                                    <>
+                                                        <Field
+                                                            component={
+                                                                RenderInput
+                                                            }
+                                                            type="text"
+                                                            name={`${key}.title`}
+                                                            label="Заголовок"
+                                                            className="goods-page-block__input"
+                                                        />
+
+                                                        <Field
+                                                            component={
+                                                                RenderRichInput
+                                                            }
+                                                            type="text"
+                                                            name={`${key}.description`}
+                                                            label="Описание"
+                                                            className="goods-page-block__input"
+                                                        />
+
+                                                        <Field
+                                                            component={
+                                                                RenderInput
+                                                            }
+                                                            type="text"
+                                                            name={`${key}.btnText`}
+                                                            label="Кнопка"
+                                                            className="goods-page-block__input"
+                                                        />
+                                                    </>
+                                                ) : null}
+
+                                                {values &&
+                                                values.page[index].type ===
+                                                    "text-form" ? (
+                                                    <>
+                                                        <Field
+                                                            component={
+                                                                RenderInput
+                                                            }
+                                                            type="text"
+                                                            name={`${key}.title`}
+                                                            label="Заголовок"
+                                                            className="goods-page-block__input"
+                                                        />
+
+                                                        <Field
+                                                            component={
+                                                                RenderRichInput
+                                                            }
+                                                            type="text"
+                                                            name={`${key}.description`}
+                                                            label="Описание"
+                                                            className="goods-page-block__input"
+                                                        />
+
+                                                        <Field
+                                                            component={
+                                                                RenderInput
+                                                            }
+                                                            type="text"
+                                                            name={`${key}.btnText`}
+                                                            label="Кнопка"
+                                                            className="goods-page-block__input"
                                                         />
                                                     </>
                                                 ) : null}

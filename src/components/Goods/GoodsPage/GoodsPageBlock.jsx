@@ -445,6 +445,15 @@ const GoodsPageBlockModules = ({fields, valueForm}) => {
                     <Field
                         component={RenderInput}
                         type="text"
+                        name={`${key}.price`}
+                        label="Цена модуля"
+                        choices={items}
+                        className="goods-page-block__input"
+                    />
+
+                    <Field
+                        component={RenderInput}
+                        type="text"
                         name={`${key}.btnText`}
                         label="Кнопка"
                         className="goods-page-block__input"
@@ -505,7 +514,25 @@ const GoodsPageBlockModules = ({fields, valueForm}) => {
                                 className="goods-page-block__input"
                             />
                         </>
-                    ) : null}
+                    ) : (
+                        <>
+                            <Field
+                                component={RenderInput}
+                                type="text"
+                                name={`${key}.titleForm`}
+                                label="Заголовок Формы"
+                                className="goods-page-block__input"
+                            />
+
+                            <Field
+                                component={RenderRichInput}
+                                type="text"
+                                name={`${key}.descriptionForm`}
+                                label="Описание Формы"
+                                className="goods-page-block__input"
+                            />
+                        </>
+                    )}
                 </div>
             ))}
 
@@ -850,6 +877,7 @@ const GoodsPageBlock = ({fields, values}) => {
         {title: "Демо уроки", key: "demo"},
         {title: "Программа курса", key: "programm"},
         {title: "Форма покупки (Якорь)", key: "fixed-form"},
+        {title: "Текст + Форма", key: "text-form"},
     ];
 
     return (
@@ -1643,6 +1671,16 @@ const GoodsPageBlock = ({fields, values}) => {
                                                                 RenderInput
                                                             }
                                                             type="text"
+                                                            name={`${key}.subtitle`}
+                                                            label="Надзаголовок"
+                                                            className="goods-page-block__input"
+                                                        />
+
+                                                        <Field
+                                                            component={
+                                                                RenderInput
+                                                            }
+                                                            type="text"
                                                             name={`${key}.title`}
                                                             label="Заголовок"
                                                             className="goods-page-block__input"
@@ -1800,6 +1838,42 @@ const GoodsPageBlock = ({fields, values}) => {
                                                 {values &&
                                                 values.page[index].type ===
                                                     "fixed-form" ? (
+                                                    <>
+                                                        <Field
+                                                            component={
+                                                                RenderInput
+                                                            }
+                                                            type="text"
+                                                            name={`${key}.title`}
+                                                            label="Заголовок"
+                                                            className="goods-page-block__input"
+                                                        />
+
+                                                        <Field
+                                                            component={
+                                                                RenderRichInput
+                                                            }
+                                                            type="text"
+                                                            name={`${key}.description`}
+                                                            label="Описание"
+                                                            className="goods-page-block__input"
+                                                        />
+
+                                                        <Field
+                                                            component={
+                                                                RenderInput
+                                                            }
+                                                            type="text"
+                                                            name={`${key}.btnText`}
+                                                            label="Кнопка"
+                                                            className="goods-page-block__input"
+                                                        />
+                                                    </>
+                                                ) : null}
+
+                                                {values &&
+                                                values.page[index].type ===
+                                                    "text-form" ? (
                                                     <>
                                                         <Field
                                                             component={
